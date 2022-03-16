@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ImageDrive.Models.TBLimage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="image-tabs">
+        <div>
+            @Html.ActionLink("Upload Image", "Create")
+        </div>
+    <div class="active-tab">
+        @Html.ActionLink("View Image", "Index")
+    </div>
+</div>
+
+<div class="image-gallary-table">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <img src=" @Html.DisplayFor(modelItem => item.Image)"/>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+<style>
+    body {
+        background: #ededeb;
+        margin-top: 20px;
+    }
+
+    .image-tabs {
+        display: flex;
+    }
+
+        .image-tabs a {
+            padding: 10px 30px;
+            margin-right: 2px;
+            border-radius: 8px 8px 0 0;
+            font-size: 16px;
+        }
+
+            .image-tabs .active-tab a, .image-tabs a:hover {
+                background: #0460db;
+                text-decoration: none;
+                color: #fff;
+            }
+
+    .image-gallary-table {
+        background: #FFF;
+        margin: 6px 0 0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 20px rgb(48 48 48 / 20%);
+    }
+
+    .form-horizontal h4 {
+        margin-top: 30px;
+    }
+
+    .image-gallary-table tr img {
+        width: 200px;
+    }
+
+
+    body {
+        background: #ededeb;
+        margin-top: 20px;
+    }
+
+    .image-tabs {
+        display: flex;
+        margin: 20px 0 25px;
+    }
+
+    .image-tabs a {
+            color: #676565;
+            padding: 10px 30px;
+            margin-right: 2px;
+            border-radius: 8px 8px 0 0;
+            font-size: 14px;
+    }
+
+    .image-tabs .active-tab a, .image-tabs a:hover {
+                background: #553CFB;
+                text-decoration: none;
+                color: #fff;
+                border-radius: 30px;
+    }
+
+    .main-content {
+        background: #FFF;
+        margin: 6px 0 0;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 20px rgb(48 48 48 / 20%);
+    }
+
+    .form-horizontal h4 {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .form-group input[type="submit"] {
+        background: #553CFB;
+        color: #fff;
+        padding: 8px 30px;
+    }
+</style>

@@ -1,0 +1,111 @@
+﻿@model ImageDrive.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+        <div class="form-text-field">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+        <div class="form-text-field">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+        <div class="form-text-field">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="register-submit">
+            <input type="submit" class="btn btn-primary" value="Register" />
+        </div>
+        <div class="click-login">
+            <p>If you have account already please click &nbsp</p>
+            @Html.ActionLink("Login", "Login")
+        </div>
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    body {
+        background: #F0F7F7;
+    }
+
+    .form-group .form-control {
+        max-width: none;
+    }
+
+    .form-horizontal {
+        width: 500px;
+        margin: 100px auto 0;
+        background: #fff;
+        box-shadow: 0 0 20px rgb(48 48 48 / 20%);
+        border-radius: 10px;
+    }
+
+        .form-horizontal h4 {
+            padding: 30px 0 0 40px;
+            font-weight: 600;
+        }
+
+        .form-horizontal .form-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+
+    .form-text-field {
+        width: 65%;
+    }
+
+    .form-horizontal .control-label {
+        width: 30%;
+        margin-right: 20px;
+    }
+
+    .register-submit {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: `5px;
+    }
+
+        .register-submit input[type="submit"] {
+            padding: 10px 40px;
+            margin: 10px 0 0;
+            background: #553CFB;
+        }
+
+    .click-login {
+        display: flex;
+        width: 100%;
+        margin: 20px 0 10px 0;
+        justify-content: flex-end;
+    }
+
+    .click-register p {
+        margin-right: 10px;
+    }
+</style>
